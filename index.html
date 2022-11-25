@@ -106,7 +106,20 @@
                     name: '',
                     number: ''
                 },
-
+                methods: {
+                sortTitle() {
+                if (this.value) this.postList.sort(this.sortMethod)
+                },
+                sortPrice() {
+                if (this.value) this.postList.sort(this.sortMethodPrice)
+                },
+                sortLocation() {
+                if (this.value) this.postList.sort(this.sortMethodlocation)
+                },
+                sortAvailability() {
+                if (this.value) this.postList.sort(this.sortMethodavailability)
+                },
+        
             });
 
         </script>
