@@ -119,8 +119,22 @@
                 sortAvailability() {
                 if (this.value) this.postList.sort(this.sortMethodavailability)
                 },
-        
-            });
+                addCart(post,id) {
+                this.arrayCart.push(post)
+                post.availability -=1
+                console.log(post)
+                },
+                showCheckout() {
+                this.showProduct = this.showProduct ? false : true;
+                },
+                submitForm() {
+                    alert('Order Submitted!');
+                },
+                cartItems() {
+                let showCart = this.arrayCart;
+                return showCart
+                },
+        });
 
         </script>
 </body>
