@@ -173,6 +173,26 @@
                     },
 
                 },
+                created() {
+                    console.log(this.postList);
+                },
+                computed: {
+                    nameV(name) {
+                        let letters = /^[A-Za-z]+$/;
+                        if (letters.test(this.name)) {
+                        return true;
+                        } else {
+                        return false;
+                        }
+                    },
+                    numberV(number) {
+                        let numbers = /^[0-9]+$/;
+                        if (numbers.test(this.number)) {
+                        return true;
+                        } else {
+                        return false;
+                        }
+                    },
         });
         </script>
 </body>
