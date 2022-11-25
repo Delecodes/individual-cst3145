@@ -193,6 +193,30 @@
                         return false;
                         }
                     },
+                    filteredList() {
+                        let displayPost = this.postList
+
+                        displayPost = displayPost.filter(lesson => {
+                            return lesson.title.toLowerCase().includes(this.search.toLowerCase())||lesson.location.toLowerCase().includes(this.search.toLowerCase())
+                        })
+                        if(this.sortPrice){
+                            this.postList.sort(this.sortMethodPrice)
+                        }
+                        if(this.sortTitle){
+                            this.postList.sort(this.sortMethod)
+                        }
+                        
+                        
+
+                        if (this.ascending == true) {
+                            return displayPost;
+                        } else {
+                            return displayPost.reverse();
+                        }
+                        return displayPost
+                        },
+
+                    },
         });
         </script>
 </body>
