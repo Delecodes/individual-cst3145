@@ -39,33 +39,24 @@
               <span><button v-on:click="sortLocation" class="btn btn-danger">Location</button></span>
               <span><button v-on:click="sortTitle" class="btn btn-danger">Availability</button></span>
               <br><br>
-              
-          <div v-else>
-            <form class="formDiv">
-              <div class="mb-3" style="margin-top: 40px;">
-                Name:
-                <label for="exampleName" class="form-label">Name</label>
-                <input type="text"  v-model="name" id="exampleName" aria-describedby="nameHelp">
+              <div class="search-wrapper" style="margin-bottom: 30px;">
+                <input class="form-control" type="text" v-model="search" placeholder="Search title.."/>
               </div>
-              <div class="mb-3">
-                Phone Number:
-                <label for="number" class="form-label">Phone Number</label>
-                <input type="Text" v-model="number"  id="number" type="number">
-              </div>
-              <button v-if="nameV&&numberV" class="btn btn-primary submit" v-on:click="submitForm">Submit</button>
-              <button v-else disabled>Submit</button>
-            </form>
+            </div>
+            <br><br>
             <div class="wrapper">
-              <div class="card" v-for="post in cartItems()">
-                <img class="card-img" v-bind:src="post.img" />
+              <div class="card" v-for="post in filteredList" ::key="post.id">
+                <img class="card-img" :src="post.imgURL" />
                 <p>{{ post.title }}</p>
                 <p>{{post.location}}</p>
                 <p> ${{post.price}}</p>
-                <button class="btn btn-secondary" v-on:click="removeItem(post.id)">Remove from Cart</button>
+                <p>{{post.availability}}</p>
+                <button v-if="post.availability > 0" class="btn btn-secondary" v-on:click="addCart(post)">Add to Cart</button>
+                <button class="add" disabled="disabled" v-else>Add to Cart</button>
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+         
 </body>
 </html>
