@@ -15,7 +15,7 @@ body {
     /* align-items: center; */
     justify-content: space-around;
     flex-direction: center;
-    background-color: lime;
+    background-color: rgb(131, 172, 188);
   }
   .asc{
     margin: 10px;
